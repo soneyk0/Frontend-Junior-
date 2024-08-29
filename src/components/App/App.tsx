@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.css';
-import Header from "./Header/Header";
+import Header from "../Header/Header";
 import {Route, Routes} from "react-router-dom";
-import LoginPage from "./Login/LoginPage";
-import error404 from './images/404.png'
-import CardsList from "./Cards/CardsList";
+import LoginPage from "../Login/LoginPage";
+import error404 from '../../assets/images/404.png'
+import CardsList from "../Cards/CardsList/CardsList";
 
 function App() {
     return (

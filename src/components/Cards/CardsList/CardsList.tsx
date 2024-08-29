@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
-import {useGetPostsQuery} from "../api/api";
-import Card from "./Card";
+import {useGetPostsQuery} from "../../../services/api/api";
+import Card from "../Card/Card";
 import s from './CardsList.module.css'
-import Paginator from "../Paginator/Paginator";
+import Paginator from "../../Paginator/Paginator";
 
 
 const CardsList = () => {

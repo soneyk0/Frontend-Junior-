@@ -1,5 +1,5 @@
 import React from "react";
-import {CardType} from "../api/api";
+import {CardType} from "../../../services/api/api";
 import s from './Card.module.css'
 
 

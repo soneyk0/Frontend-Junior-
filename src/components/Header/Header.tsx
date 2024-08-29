@@ -2,8 +2,8 @@ import React from 'react';
 import s from './Header.module.css';
 import {NavLink} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {RootState} from "../store";
-import {logout} from "../Login/authSlice";
+import {RootState} from "../../services/redux/store";
+import {logout} from "../../services/redux/reducers/authSlice";
 
 const Header = () => {
     const dispatch = useDispatch();

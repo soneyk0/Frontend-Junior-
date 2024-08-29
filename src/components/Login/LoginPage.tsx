@@ -1,9 +1,9 @@
 import React, {FormEvent, useState} from "react";
 import s from './LoginPage.module.css'
 import {useDispatch} from "react-redux";
-import {useGetUserByUsernameQuery} from "../api/api";
+import {useGetUserByUsernameQuery} from "../../services/api/api";
 import {useNavigate} from "react-router-dom";
-import {login} from "./authSlice";
+import {login} from "../../services/redux/reducers/authSlice";
 
 
 const LoginPage = () => {
