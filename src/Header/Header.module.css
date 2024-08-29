@@ -1,0 +1,44 @@
+.header{
+    display: flex;
+    background-color: #88d188;
+    padding: 8px 10px;
+    align-items: center;
+    column-gap: 15px;
+}
+
+.name{
+    color:white;
+    font-size: 24px;
+    font-family: Inter;
+    margin: 0 15px;
+
+}
+
+.loginBlock {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.buttonSingIn{
+    width: 100px;
+    border-radius: 8px;
+    background: #88d188;
+    color: white;
+    padding: 10px 0;
+    font-size: 16px;
+    border: 1px white solid;
+    margin: 0 15px;
+}
+
+.buttonSingIn:hover {
+    background-color: lightgreen;
+    transform: scale(1.05);
+}
+
+.buttonSingIn:focus {
+    outline: none;
+    background-color: white;
+    color:#88d188;
+    border: 2px #88d188 solid;
+}

@@ -1,0 +1,49 @@
+.formBox{
+    margin-top: 125px;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+    width: 300px;
+    height: 400px;
+    box-shadow: 3px 3px 20px rgba(0, 0, 0, .5);
+    border: 1px
+}
+h1{
+    padding: 50px 10px 10px 10px;
+    font-family: Arial, sans-serif;
+    color: #2b452b;
+    text-align: center;
+}
+.userName{
+    width: 250px;
+    height: 30px;
+    border: 2px solid #88d188;
+    border-radius: 8px;
+    font-size: 20px;
+    margin-top: 50px;
+    margin-left: 25px;
+}
+.buttonSend{
+    width: 250px;
+    height: 30px;
+    border: 2px solid #88d188;
+    border-radius: 8px;
+    font-size: 20px;
+    margin-top: 50px;
+    margin-left: 25px;
+    background: #88d188;
+    color: white;
+}
+
+.buttonSend:hover {
+    background-color: lightgreen;
+    transform: scale(1.05);
+}
+
+.buttonSend:focus {
+    outline: none;
+    background-color: white;
+    color:#88d188;
+    border: 2px #88d188 solid;
+}
+

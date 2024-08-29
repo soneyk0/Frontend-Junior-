@@ -1,0 +1,31 @@
+.containerOfCards{
+    display: flex;
+    justify-content: center; /* Центрирование по горизонтали для контейнера .listOfCards */
+    align-items: center;      /* Центрирование по вертикали для контейнера .listOfCards */
+    height: 80vh;
+}
+.listOfCards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    align-items: center;
+}
+
+h2 {
+    padding: 10px 10px 10px 10px;
+    font-family: Arial, sans-serif;
+    color: #2b452b;
+    text-transform: capitalize;
+    text-align: left;
+}
+
+p {
+    padding: 10px 10px 10px 10px;
+    font-size: 16px;
+    text-transform: capitalize;
+    text-align: left;
+}
+
+.paginator{
+    display: flex;
+    justify-content: center;
+}

@@ -1,0 +1,39 @@
+span{
+    font-family: Arial, sans-serif;
+    color: #2b452b;
+
+}
+
+.paginationButton{
+    width: 100px;
+    padding: 10px 0;
+    margin: 0 50px;
+    border-radius: 8px;
+    background: #88d188;
+    color: white;
+    font-size: 16px;
+    border: 2px white solid;
+    transition: background 0.3s, transform 0.2s;
+    cursor: pointer;
+
+}
+
+.paginationButton:hover {
+    background-color: lightgreen;
+    transform: scale(1.05);
+}
+
+.paginationButton:focus {
+    outline: none;
+    background-color: white;
+    color:#88d188;
+    border: 2px #88d188 solid;
+
+}
+
+.paginationButton:disabled {
+    background: #c0c0c0; /* Более светлый цвет для отключенной кнопки */
+    color: #7e7e7e; /* Более тусклый цвет текста */
+    border: 2px solid #a0a0a0; /* Цвет рамки отключенной кнопки */
+    cursor: not-allowed;
+}
