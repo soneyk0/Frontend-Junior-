@@ -1,24 +1,39 @@
-import { createSlice } from '@reduxjs/toolkit';
+import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
 
-const initialState = {
-    user: null,
-    isAuthenticated: false,
-};
+type AuthTypeReducer = {
+    user: null | [],
+    isAuthenticated: boolean,
+}
+
+const initialState: AuthTypeReducer = { user: null, isAuthenticated: false,}
+
+
+export const fetchAuth = createAsyncThunk('auth/fetchAuthData', async (username:string) => {
+    const response = await fetch(`https://jsonplaceholder.typicode.com/users?username=${username}`);
+    return  await response.json();
+});
 
 const authSlice = createSlice({
     name: 'auth',
     initialState,
     reducers: {
-        login(state, action) {
-            state.user = action.payload;
-            state.isAuthenticated = true;
-        },
-        logout(state) {
-            state.user = null;
-            state.isAuthenticated = false;
-        },
+        logout(state){
+            state.user = null
+        }
+    },
+    extraReducers: (builder) => {
+        builder
+            .addCase(fetchAuth.fulfilled, (state,action) => {
+                state.user = action.payload;
+                state.isAuthenticated = true;
+            })
+            .addCase(fetchAuth.rejected, (state,action) => {
+                state.user = null;
+                state.isAuthenticated = false;
+
+            })
     },
 });
 
-export const { login, logout } = authSlice.actions;
+export const {logout} = authSlice.actions
 export default authSlice.reducer;

@@ -1,37 +1,34 @@
-import React, {FormEvent, useState} from "react";
+import React, {FormEvent, useEffect, useState} from "react";
 import s from './LoginPage.module.css'
-import {useDispatch} from "react-redux";
-import {useGetUserByUsernameQuery} from "../../services/api/api";
+import {useDispatch, useSelector} from "react-redux";
 import {useNavigate} from "react-router-dom";
-import {login} from "../../services/redux/reducers/authSlice";
+import {fetchAuth} from "../../services/redux/reducers/authSlice";
+import {AppDispatch, RootState} from "../../services/redux/store";
 
 
 const LoginPage = () => {
     const [username, setUsername] = useState(' ');
     const [submit, setSubmit] = useState(false);
-    const dispatch = useDispatch();
+    const dispatch = useDispatch<AppDispatch>();
+    const {user} = useSelector((state:RootState)=>state.auth)
     const navigate = useNavigate();
-    const {data: users, error} = useGetUserByUsernameQuery(username, {
-        skip: !submit,
-    });
+
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setSubmit(true);
+        dispatch(fetchAuth(username))
     };
 
-    React.useEffect(() => {
-        if (submit && users) {
-            if (users.length > 0) {
-                dispatch(login(users[0]));
-                navigate('/');
-            } else {
+    useEffect(() => {
+        if (submit) {
+            if (!user) {
                 alert('User not found');
+            } else {
                 navigate('/');
             }
-            setSubmit(false);
         }
-    }, [submit, users, dispatch, navigate]);
+    }, [user]);
 
     return (
         <div className={s.formBox}>
@@ -43,7 +40,6 @@ const LoginPage = () => {
                        onChange={(e) => setUsername(e.target.value)}/><br/>
                 <button type='submit' className={s.buttonSend}>Send</button>
             </form>
-            {error && <p>Error loading user data.</p>}
         </div>
     )
 }

@@ -20,7 +20,7 @@
     margin-left: auto;
 }
 
-.buttonSingIn{
+.buttonAuth{
     width: 100px;
     border-radius: 8px;
     background: #88d188;
@@ -31,12 +31,12 @@
     margin: 0 15px;
 }
 
-.buttonSingIn:hover {
+.buttonAuth:hover {
     background-color: lightgreen;
     transform: scale(1.05);
 }
 
-.buttonSingIn:focus {
+.buttonAuth:focus {
     outline: none;
     background-color: white;
     color:#88d188;

@@ -1,13 +1,12 @@
-import React from 'react';
 import s from './Header.module.css';
 import {NavLink} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../../services/redux/store";
-import {logout} from "../../services/redux/reducers/authSlice";
+import { logout} from "../../services/redux/reducers/authSlice";
 
 const Header = () => {
     const dispatch = useDispatch();
-    const user = useSelector((state: RootState) => state.auth.user);
+    const {user} = useSelector((state: RootState) => state.auth);
 
     return (
         <div>
@@ -16,10 +15,10 @@ const Header = () => {
                 <div className={s.name}>Best Application</div>
                 <div className={s.loginBlock}>
                     {user ? (
-                        <button onClick={() => dispatch(logout())}>Log Out</button>
+                        <button className={s.buttonAuth} onClick={() => dispatch(logout())}>Log Out</button>
                     ) : (
                         <NavLink to={'/signIn'}>
-                            <button className={s.buttonSingIn}>
+                            <button className={s.buttonAuth}>
                                 Sign In
                             </button>
                         </NavLink>

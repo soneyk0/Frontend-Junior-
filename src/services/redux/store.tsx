@@ -1,17 +1,16 @@
 import {configureStore} from '@reduxjs/toolkit';
-import {cardsApi} from "../api/api";
 import authReducer from './reducers/authSlice';
+import cardsReducer from './reducers/cardsSlice';
 
 
 const store = configureStore({
     reducer: {
-        [cardsApi.reducerPath]: cardsApi.reducer,
         auth: authReducer,
-    },
-    middleware: (getDefaultMiddleware) =>
-        getDefaultMiddleware().concat(cardsApi.middleware),
+        cards: cardsReducer,
+    }
 });
 
 export type RootState = ReturnType<typeof store.getState>
+export type AppDispatch = typeof store.dispatch;
 
 export default store;
